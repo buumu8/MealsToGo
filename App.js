@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+
+import RestaurantsScreen from "./src/features/restuarants/screens/restaurants.screen";
 
 export default function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <RestaurantsScreen
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
+      <ExpoStatusBar style="auto" />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
