@@ -14,13 +14,13 @@ const SafeArea = styled.SafeAreaView`
 `;
 
 const SearchConatainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[2]};
   justify-content: center;
 `;
 
 const RestaurantListContainer = styled.View`
   flex: 1;
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.brand.primary};
 `;
 
