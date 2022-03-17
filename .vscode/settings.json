@@ -1,0 +1,10 @@
+{
+    "vsicons.presets.jsOfficial": true,
+    "vsicons.associations.files": [
+        { 
+            "icon": "scss",  
+            "extensions": ["styles.js"], 
+            "filename": false, 
+            "format": "svg" 
+        }]
+}

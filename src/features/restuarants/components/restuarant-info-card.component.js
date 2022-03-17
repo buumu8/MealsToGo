@@ -1,55 +1,19 @@
 import React from "react";
-import styled from "styled-components/native";
-import { Image, Text, View } from "react-native";
-import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 import { Spacer } from "../../../components/spacer/spacer.component";
-
-const Title = styled.Text`
-  font-size: ${(props) => props.theme.fontSizes.body};
-  font-family: ${(props) => props.theme.fonts.heading};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
-const Address = styled.Text`
-  font-size: ${(props) => props.theme.fontSizes.caption};
-  font-family: ${(props) => props.theme.fonts.body};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
-const RestaurantCard = styled(Card)`
-  padding: ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
-
-const Section = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const SectionEnd = styled.View`
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
+import { Text } from "../../../components/typography/text.component";
+import {
+  Icon,
+  Address,
+  Info,
+  RestaurantCard,
+  RestaurantCardCover,
+  Rating,
+  Section,
+  SectionEnd,
+} from "./restuarant-info-card.styles";
 
 export default function RestaurantsInfoCard({ restuarant = {} }) {
   const {
@@ -70,28 +34,25 @@ export default function RestaurantsInfoCard({ restuarant = {} }) {
     <RestaurantCard elevation={5}>
       <RestaurantCardCover source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <Section>
           <Rating>
-            {ratingArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+            {ratingArray.map((a, index) => (
+              <SvgXml key={index} xml={star} width={20} height={20} />
             ))}
           </Rating>
           <SectionEnd>
             {isClosedTemporarily && (
-              <Text variant="label" style={{ color: "red" }}>
-                CLOSED TEMPORARILY
-              </Text>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
-            <Spacer variant="left.medium" />
-            {isOpenNow && (
-              <SvgXml xml={open} width={20} height={20} />
-            )}
-            <Spacer variant="left.medium" />
-            <Image
-              style={{ width: 15, height: 15 }}
-              source={{ uri: icon }}
-            />
+            <Spacer position="left" size="medium">
+              {isOpenNow && (
+                <SvgXml xml={open} width={20} height={20} />
+              )}
+            </Spacer>
+            <Spacer position="left" size="medium">
+              <Icon source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
