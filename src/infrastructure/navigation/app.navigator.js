@@ -5,6 +5,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RestaurantsNavigator } from "./restaurants.navigator";
+import { MapScreen } from "../../features/map/screens/map.screen";
+
 const Tab = createBottomTabNavigator();
 
 const screenOptions = ({ route }) => {
@@ -17,14 +19,6 @@ const screenOptions = ({ route }) => {
     tabBarInactiveTintColor: "gray",
     headerShown: false,
   };
-};
-
-const MapScreen = () => {
-  return (
-    <SafeArea>
-      <Text>Map</Text>
-    </SafeArea>
-  );
 };
 
 const SettingScreen = () => {
