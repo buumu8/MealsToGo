@@ -1,7 +1,12 @@
 {
-    "extends": "@react-native-community",
-    "rules": {
+    "extends": 
+    [
+        "@react-native-community"
+    ],
+    "rules": 
+    {
         "quotes": [2, "double", { "avoidEscape": true }],
-        "semi": ["error", "never"]
-      }
+        "semi": ["error", "never"],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
 }

@@ -25,10 +25,14 @@ export default function RestaurantsInfoCard({ restuarant = {} }) {
     address = "100 some random street",
     isOpenNow = true,
     rating = 4,
+    userRatingsTotal = 1,
+    placeId = "asdfjslkajdfkl;j",
     isClosedTemporarily = true,
   } = restuarant;
 
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  const ratingArray = Array.from(
+    new Array(Math.floor(rating > 0 ? rating : 0))
+  );
 
   return (
     <RestaurantCard elevation={5}>
@@ -37,10 +41,18 @@ export default function RestaurantsInfoCard({ restuarant = {} }) {
         <Text variant="label">{name}</Text>
         <Section>
           <Rating>
-            {ratingArray.map((a, index) => (
-              <SvgXml key={index} xml={star} width={20} height={20} />
+            {ratingArray.map((_, index) => (
+              <SvgXml
+                key={`star-${placeId}-${index}`}
+                xml={star}
+                width={20}
+                height={20}
+              />
             ))}
           </Rating>
+          <Spacer position="left" size="medium">
+            <Text variant="caption">{`(${userRatingsTotal.toLocaleString()})`}</Text>
+          </Spacer>
           <SectionEnd>
             {isClosedTemporarily && (
               <Text variant="error">CLOSED TEMPORARILY</Text>
