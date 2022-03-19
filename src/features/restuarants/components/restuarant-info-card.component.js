@@ -14,8 +14,9 @@ import {
   Section,
   SectionEnd,
 } from "./restuarant-info-card.styles";
+import { Favourites } from "../../../components/Favourites/favourites.component";
 
-export default function RestaurantsInfoCard({ restuarant = {} }) {
+export default function RestaurantsInfoCard({ restaurant = {} }) {
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -28,7 +29,7 @@ export default function RestaurantsInfoCard({ restuarant = {} }) {
     userRatingsTotal = 1,
     placeId = "asdfjslkajdfkl;j",
     isClosedTemporarily = true,
-  } = restuarant;
+  } = restaurant;
 
   const ratingArray = Array.from(
     new Array(Math.floor(rating > 0 ? rating : 0))
@@ -36,6 +37,7 @@ export default function RestaurantsInfoCard({ restuarant = {} }) {
 
   return (
     <RestaurantCard elevation={5}>
+      <Favourites restaurant={restaurant} />
       <RestaurantCardCover source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>

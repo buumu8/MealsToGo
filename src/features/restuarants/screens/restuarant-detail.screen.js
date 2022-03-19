@@ -11,7 +11,7 @@ export const RestaurantDetailScreen = ({ route }) => {
   const [drinksExpanded, setDrinksExpanded] = useState(false);
   return (
     <SafeArea>
-      <RestaurantsInfoCard restuarant={restaurant} />
+      <RestaurantsInfoCard restaurant={restaurant} />
       <ScrollView>
         <List.Accordion
           title="Breakfast"

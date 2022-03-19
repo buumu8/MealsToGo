@@ -8,7 +8,10 @@ const SearchConatainer = styled.View`
   justify-content: center;
 `;
 
-export const Search = () => {
+export const Search = ({
+  isFavouritesToggled,
+  onFavouritesToggle,
+}) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
   useEffect(() => {
@@ -17,6 +20,8 @@ export const Search = () => {
   return (
     <SearchConatainer>
       <Searchbar
+        icon={isFavouritesToggled ? "heart" : "heart-outline"}
+        onIconPress={onFavouritesToggle}
         placeholder="Search for a location"
         onChangeText={(text) => {
           setSearchKeyword(text);

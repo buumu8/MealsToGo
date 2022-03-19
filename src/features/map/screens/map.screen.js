@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import MapView from "react-native-maps";
 import styled from "styled-components/native";
-import { RestaurantsNavigator } from "../../../infrastructure/navigation/restaurants.navigator";
+// import { RestaurantsNavigator } from "../../../infrastructure/navigation/restaurants.navigator";
 import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
-import { restaurantsRequest } from "../../../services/restaurants/restaurants.service";
+// import { restaurantsRequest } from "../../../services/restaurants/restaurants.service";
 import { MapCallout } from "../components/map-callout.component";
 import { Search } from "../components/search.component";
 
