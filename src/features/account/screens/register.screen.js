@@ -14,15 +14,6 @@ import {
   ErrorContainer,
 } from "../components/account.styles";
 
-const LoadingContainer = styled.View`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-`;
-
-const Loading = styled(ActivityIndicator)`
-  margin-left: -25px;
-`;
 export const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,18 +24,13 @@ export const RegisterScreen = ({ navigation }) => {
 
   return (
     <AccountBackground>
-      {isLoading && (
-        <LoadingContainer>
-          <Loading size={50} animating color={Colors.blue300} />
-        </LoadingContainer>
-      )}
       <Title variant="body">Meals To Go</Title>
       <AccountCover />
       <AccountContainer>
         <AuthInput
           label="email"
           value={email}
-          textContentType="emailAddres"
+          textContentType="emailAddress"
           keyboardType="email-address"
           autoCapitalize="none"
           onChangeText={(text) => setEmail(text)}
@@ -75,15 +61,23 @@ export const RegisterScreen = ({ navigation }) => {
           </ErrorContainer>
         </Spacer>
         <Spacer position="top" size="medium">
-          <AuthButton
-            icon="email"
-            mode="contained"
-            onPress={() => {
-              onRegister(email, password, repeatedPassword);
-            }}
-          >
-            Register
-          </AuthButton>
+          {!isLoading ? (
+            <AuthButton
+              icon="email"
+              mode="contained"
+              onPress={() => {
+                onRegister(email, password, repeatedPassword);
+              }}
+            >
+              Register
+            </AuthButton>
+          ) : (
+            <ActivityIndicator
+              size={50}
+              animating
+              color={Colors.blue300}
+            />
+          )}
         </Spacer>
       </AccountContainer>
       <Spacer position="top" size="large">

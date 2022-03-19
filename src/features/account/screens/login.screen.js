@@ -14,15 +14,6 @@ import {
   ErrorContainer,
 } from "../components/account.styles";
 
-const LoadingContainer = styled.View`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-`;
-
-const Loading = styled(ActivityIndicator)`
-  margin-left: -25px;
-`;
 export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,18 +23,13 @@ export const LoginScreen = ({ navigation }) => {
 
   return (
     <AccountBackground>
-      {isLoading && (
-        <LoadingContainer>
-          <Loading size={50} animating color={Colors.blue300} />
-        </LoadingContainer>
-      )}
       <Title variant="body">Meals To Go</Title>
       <AccountCover />
       <AccountContainer>
         <AuthInput
           label="email"
           value={email}
-          textContentType="emailAddres"
+          textContentType="emailAddress"
           keyboardType="email-address"
           autoCapitalize="none"
           onChangeText={(text) => setEmail(text)}
@@ -63,15 +49,23 @@ export const LoginScreen = ({ navigation }) => {
           </ErrorContainer>
         </Spacer>
         <Spacer position="top" size="medium">
-          <AuthButton
-            icon="lock-open-outline"
-            mode="contained"
-            onPress={() => {
-              onLogin(email, password);
-            }}
-          >
-            Login
-          </AuthButton>
+          {!isLoading ? (
+            <AuthButton
+              icon="lock-open-outline"
+              mode="contained"
+              onPress={() => {
+                onLogin(email, password);
+              }}
+            >
+              Login
+            </AuthButton>
+          ) : (
+            <ActivityIndicator
+              size={50}
+              animating
+              color={Colors.blue300}
+            />
+          )}
         </Spacer>
       </AccountContainer>
       <Spacer position="top" size="large">
