@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import SafeArea from "../../components/utility/safe-area.component";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
@@ -37,15 +36,13 @@ const TAB_ICON = {
 
 export const AppNavigator = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen
-          name="Restaurants"
-          component={RestaurantsNavigator}
-        />
-        <Tab.Screen name="Map" component={MapScreen} />
-        <Tab.Screen name="Settings" component={SettingScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen
+        name="Restaurants"
+        component={RestaurantsNavigator}
+      />
+      <Tab.Screen name="Map" component={MapScreen} />
+      <Tab.Screen name="Settings" component={SettingScreen} />
+    </Tab.Navigator>
   );
 };

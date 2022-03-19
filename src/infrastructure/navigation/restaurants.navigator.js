@@ -8,9 +8,9 @@ export const RestaurantsNavigator = () => {
   //   console.log(route);
   return (
     <RestaurantStack.Navigator
-    //   screenOptions={{
-    //     headerShown: false,
-    //   }}
+      screenOptions={{
+        headerShown: false,
+      }}
     >
       <RestaurantStack.Screen
         name="RestaurantsScreen"
