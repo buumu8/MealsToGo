@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import SafeArea from "../../components/utility/safe-area.component";
 import { Ionicons } from "@expo/vector-icons";
-import { Text } from "react-native";
+import { Text, Button } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
-
+import { AuthenticationContext } from "../../services/authentication/authentication.context";
 const Tab = createBottomTabNavigator();
 
 const screenOptions = ({ route }) => {
@@ -21,9 +21,11 @@ const screenOptions = ({ route }) => {
 };
 
 const SettingScreen = () => {
+  const { onLogout } = useContext(AuthenticationContext);
   return (
     <SafeArea>
       <Text>Setting</Text>
+      <Button title="logout" onPress={() => onLogout()} />
     </SafeArea>
   );
 };
