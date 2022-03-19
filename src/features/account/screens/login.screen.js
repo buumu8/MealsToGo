@@ -67,7 +67,6 @@ export const LoginScreen = ({ navigation }) => {
             icon="lock-open-outline"
             mode="contained"
             onPress={() => {
-              console.log(email, password);
               onLogin(email, password);
             }}
           >
@@ -78,7 +77,7 @@ export const LoginScreen = ({ navigation }) => {
       <Spacer position="top" size="large">
         <AuthButton
           mode="contained"
-          onPress={() => navigation.navigate("Main")}
+          onPress={() => navigation.goBack()}
         >
           Back
         </AuthButton>
