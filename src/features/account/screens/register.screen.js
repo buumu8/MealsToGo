@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { ActivityIndicator, Colors } from "react-native-paper";
-import styled from "styled-components/native";
-
+import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import {
   AccountBackground,
