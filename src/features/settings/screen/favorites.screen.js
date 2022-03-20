@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FlatList, TouchableOpacity, View, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import styled from "styled-components/native";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 import { Spacer } from "../../../components/spacer/spacer.component";
