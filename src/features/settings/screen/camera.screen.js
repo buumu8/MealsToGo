@@ -1,9 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useContext,
+} from "react";
 import { Camera } from "expo-camera";
 import styled from "styled-components/native";
 
 import { View } from "react-native";
 import { Button } from "react-native-paper";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 import { Text } from "../../../components/typography/text.component";
 
@@ -33,10 +41,11 @@ export const CameraScreen = () => {
   const cameraRef = useRef();
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.front);
+  const { user } = useContext(AuthenticationContext);
   const snap = async () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
-      console.log(photo);
+      AsyncStorage.setItem(`${user.uid}-photo`, photo.uri);
     }
   };
   useEffect(() => {
