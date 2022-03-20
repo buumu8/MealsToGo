@@ -14,7 +14,7 @@ const NoFavouriteArea = styled(SafeArea)`
 
 export const FavouritesScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
-  console.log(favourites);
+
   return favourites.length ? (
     <RestaurantList
       data={favourites}
