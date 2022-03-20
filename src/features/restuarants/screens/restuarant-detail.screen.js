@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ScrollView } from "react-native";
-import { List } from "react-native-paper";
+import { List, Divider } from "react-native-paper";
 import RestaurantsInfoCard from "../components/restuarant-info-card.component";
 import SafeArea from "../../../components/utility/safe-area.component";
 export const RestaurantDetailScreen = ({ route }) => {
@@ -22,8 +22,10 @@ export const RestaurantDetailScreen = ({ route }) => {
           )}
         >
           <List.Item title="Eggs Benedict" />
+          <Divider />
           <List.Item title="Classic Breakfast" />
         </List.Accordion>
+        <Divider />
         <List.Accordion
           title="Lunch"
           expanded={lunchExpanded}
@@ -31,8 +33,10 @@ export const RestaurantDetailScreen = ({ route }) => {
           left={(props) => <List.Icon {...props} icon="hamburger" />}
         >
           <List.Item title="Burger w/ Fries" />
+          <Divider />
           <List.Item title="Steak Sandwich" />
         </List.Accordion>
+        <Divider />
         <List.Accordion
           title="Dinner"
           expanded={dinnerExpanded}
@@ -42,8 +46,10 @@ export const RestaurantDetailScreen = ({ route }) => {
           )}
         >
           <List.Item title="Pork Cutlet" />
+          <Divider />
           <List.Item title="Spaghetti Bolognese" />
         </List.Accordion>
+        <Divider />
         <List.Accordion
           title="Drinks"
           expanded={drinksExpanded}
@@ -51,6 +57,7 @@ export const RestaurantDetailScreen = ({ route }) => {
           left={(props) => <List.Icon {...props} icon="cup" />}
         >
           <List.Item title="Coffee" />
+          <Divider />
           <List.Item title="Tea" />
         </List.Accordion>
       </ScrollView>

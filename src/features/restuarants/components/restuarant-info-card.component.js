@@ -36,7 +36,7 @@ export default function RestaurantsInfoCard({ restaurant = {} }) {
   );
 
   return (
-    <RestaurantCard elevation={5}>
+    <RestaurantCard elevation={2}>
       <Favourites restaurant={restaurant} />
       <RestaurantCardCover source={{ uri: photos[0] }} />
       <Info>

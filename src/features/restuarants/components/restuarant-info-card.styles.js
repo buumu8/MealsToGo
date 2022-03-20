@@ -15,6 +15,8 @@ export const Address = styled.Text`
 export const RestaurantCard = styled(Card)`
   padding: ${(props) => props.theme.space[2]};
   background-color: ${(props) => props.theme.colors.bg.primary};
+  width: 95%;
+  align-self: center;
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
