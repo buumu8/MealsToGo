@@ -14,7 +14,7 @@ const LocationContextProviderWithPadding = styled(
   padding: 10px;
 `;
 
-const LocationContextProvider = ({ children }) => {
+export const LocationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [keyword, setKeyword] = useState("San Francisco");
@@ -57,4 +57,3 @@ const LocationContextProvider = ({ children }) => {
     </LocationContextProviderWithPadding>
   );
 };
-export default LocationContextProvider;

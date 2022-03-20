@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import {
   AccountBackground,
