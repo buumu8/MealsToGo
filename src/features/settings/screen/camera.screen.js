@@ -37,7 +37,7 @@ const ProfileCamera = styled(Camera)`
   flex: 1;
 `;
 
-export const CameraScreen = () => {
+export const CameraScreen = ({ navigation }) => {
   const cameraRef = useRef();
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.front);
@@ -46,6 +46,7 @@ export const CameraScreen = () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
       AsyncStorage.setItem(`${user.uid}-photo`, photo.uri);
+      navigation.goBack();
     }
   };
   useEffect(() => {
