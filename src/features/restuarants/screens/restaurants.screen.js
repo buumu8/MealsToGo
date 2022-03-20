@@ -9,14 +9,7 @@ import { FavouritesBar } from "../../../components/Favourites/favourites-bar.com
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 import { Search } from "../components/search.component";
-
-const RestaurantList = styled(FlatList).attrs({
-  contnentContainerStyle: {
-    padding: 16,
-  },
-})`
-  padding: 16px;
-`;
+import { RestaurantList } from "../components/restaurant-list.styles";
 
 const LoadingContainer = styled.View`
   position: absolute;
